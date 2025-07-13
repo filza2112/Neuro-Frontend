@@ -15,7 +15,7 @@ const features = [
     id: "focus-mood-tracker",
     icon: "🎯",
     title: "Focus Tracker",
-    description: "Passive tracking using phone usage, typing patterns",
+    description: "Passive tracking using pomodoro timer, typing patterns",
     tags: ["ADHD", "Autism"], 
   },
   {
@@ -38,14 +38,14 @@ const features = [
     icon: "🎮",
     title: "AI-Therapist",
     description:
-      "Gamified brain training zone with adaptive levels for attention, inhibition control, and social skills",
+      "A conversational assistant powered by language models, offering calming scripts, exposure therapy coaching, and simulated social interactions. ",
     tags: ["ADHD", "Autism", "OCD"],
   },
   {
     id: "focus-mood-tracker",
     icon: "😊",
     title: "Mood Tracker",
-    description: "Passive tracking using phone usage, typing patterns",
+    description: "Passive tracking using Surveys, typing patterns",
     tags: ["ADHD", "Autism"], 
   },
 ];
