@@ -8,7 +8,7 @@ const api = process.env.REACT_APP_API_URL;
 
 
 function RoutineBuilder() {
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
   const [tasks, setTasks] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [completionStats, setCompletionStats] = useState({ completed: 0, total: 0 });
@@ -44,8 +44,7 @@ function RoutineBuilder() {
     try {
       const res = await fetch(`${api}/api/tasks/smart-generate/${userId}`);
 
-      const data = await res.json(); // ✅ only call .json() ONCE
-
+      const data = await res.json();
       if (!res.ok) {
         console.error("Backend error:", data);
         alert(data.error || "Failed to generate tasks");

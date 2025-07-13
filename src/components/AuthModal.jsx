@@ -1,4 +1,3 @@
-// cleint/src/components/AuthModal.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
@@ -22,12 +21,11 @@ const AuthModal = ({ isOpen, onClose, isSignupMode, setSignupMode }) => {
       const response = await api.post(url, formData);
 
       if (response.status === 200 || response.status === 201) {
-        localStorage.setItem("token", response.data.token);
+        // ✅ Hardcoded userId
+        localStorage.setItem('userId', 'dev_user_123');
 
-
-        localStorage.setItem("userId", response.data.userId);
         onClose();
-        navigate("/homepage");
+        navigate('/homepage');
       } else {
         setError('Something went wrong');
       }

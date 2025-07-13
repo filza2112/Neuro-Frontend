@@ -116,8 +116,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="text-white font-mullish hover:text-accent transition-all duration-200 cursor-pointer py-3 border-b border-accent/20">
-                <Link 
-                  to="/features/game"
+                <Link
+                  to="/features/neuroplay-zone"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   NeuroPlay Zone

@@ -3,14 +3,16 @@ const api = process.env.REACT_APP_API_URL;
 
 const colors = ["red", "green", "blue", "white"];
 
-export default function StroopTest({ userId, difficulty }) {
+export default function StroopTest({ difficulty }) {
   const [word, setWord] = useState("");
   const [color, setColor] = useState("");
   const [startTime, setStartTime] = useState(null);
   const [status, setStatus] = useState("");
   const [attempts, setAttempts] = useState([]);
   const [count, setCount] = useState(0);
-  const [finalStats, setFinalStats] = useState(null); // new state
+  const [finalStats, setFinalStats] = useState(null); 
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
+  // new state
 
   useEffect(() => {
     generateWord();

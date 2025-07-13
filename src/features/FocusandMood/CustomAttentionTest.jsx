@@ -4,9 +4,11 @@ import DigitSpanTest from "./DigitSpanTest";
 import SimonSaysTest from "./SimonSaysTest";
 import UnifiedAttentionDashboard from "./UnifiedAttentionDashboard";
 
-export default function CustomAttentionTest({ userId }) {
+export default function CustomAttentionTest() {
   const [testType, setTestType] = useState("stroop");
   const [difficulty, setDifficulty] = useState("medium");
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
+
 
   const renderTest = () => {
     const props = { userId, difficulty };

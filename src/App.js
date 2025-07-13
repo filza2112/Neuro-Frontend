@@ -12,8 +12,6 @@ import MoodComic from './features/Quiz/MoodComic';
 import Game from './pages/Game';
 import MemoryGame from './components/MemoryGame';
 import ErrorBoundary from "./Error";
-import FocusGame from "./components/FocusGame";
-
 
 
 
@@ -21,16 +19,13 @@ import FocusGame from "./components/FocusGame";
 export default function App() {
 
   return (
-      <ErrorBoundary>
-
+    <ErrorBoundary>
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/dashbaord" element={<DashBoard />} />
         <Route path="/features/game" element={<Game />} />
   <Route path="/features/game/Memory" element={<MemoryGame />} />
-  <Route path="/features/game/Focus" element={<FocusGame />} />
-
 
 
 
@@ -51,8 +46,7 @@ export default function App() {
         </Route>
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
-      </ ErrorBoundary>
-
+    </ErrorBoundary>
   
   );
 }

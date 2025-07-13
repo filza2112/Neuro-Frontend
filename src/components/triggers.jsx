@@ -9,7 +9,6 @@ function TopTriggersCard() {
     async function fetchTriggers() {
       try {
         const res = await fetch(`https://neuro-backend-production-e950.up.railway.app/api/chat/top-triggers/${userId}`);
-        if (!res.ok) return;
         const data = await res.json();
         setTriggers(data);
       } catch (err) {

@@ -11,13 +11,14 @@ const DISTRACTIONS = [
 ];
 
 export default function DistractionLogger() {
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
   const [selected, setSelected] = useState("");
 
 
   
   const handleLog = (type) => {
-    const userId = localStorage.getItem("userId");
+    
+    
 
     if (!userId) {
       console.error("❌ userId is missing in localStorage");

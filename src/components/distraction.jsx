@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { safeFetchJson } from "../";
 
-export default function TopDistractions({ userId }) {
+export default function TopDistractions() {
   const [topDistractions, setTopDistractions] = useState([]);
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
 
   useEffect(() => {
     const fetchDistractions = async () => {
@@ -10,7 +10,6 @@ export default function TopDistractions({ userId }) {
         const res = await fetch(
           `https://neuro-backend-production-e950.up.railway.app/api/distraction/summary/${userId}`
         );
-        if (!res.ok) return;
         const data = await res.json();
         setTopDistractions(data);
       } catch (err) {

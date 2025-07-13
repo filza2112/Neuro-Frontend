@@ -6,7 +6,8 @@ function AddTaskModal({ onClose, setTasks }) {
   const [title, setTitle] = useState("");
   const [time, setTime] = useState(30);
   const [loading, setLoading] = useState(false);
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
+  
 
   const addTask = async () => {
     if (!title.trim()) return;

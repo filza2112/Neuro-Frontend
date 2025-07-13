@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 const WeeklyProgressChart = () => {
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
   const API_URL = process.env.REACT_APP_API_URL;
 
   const [data, setData] = useState([]);

@@ -31,7 +31,8 @@ function MoodSlider() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [tags, setTags] = useState([]);
-  const userId = localStorage.getItem("userId") ;
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
+  
   
 
   const submitMood = async () => {
@@ -48,7 +49,7 @@ function MoodSlider() {
 
 
     try {
-      const res = await fetch(`https://neuro-backend-production-e950.up.railway.app/api/mood/submit`, {
+      const res = await fetch(`${api}/api/mood/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(moodEntry),

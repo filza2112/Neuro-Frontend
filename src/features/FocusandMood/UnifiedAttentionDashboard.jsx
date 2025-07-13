@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 const api = process.env.REACT_APP_API_URL;
 
-
-
-export default function UnifiedAttentionDashboard({userId}) {
+export default function UnifiedAttentionDashboard() {
   const [metrics, setMetrics] = useState(null);
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
   console.log("UnifiedAttentionDashboard userId:", userId);
+ 
+
 
 
   useEffect(() => {

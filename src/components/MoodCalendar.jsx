@@ -11,24 +11,22 @@ const moodColors = {
   100: "bg-green-500",
 };
 
-export default function MoodCalendar({ userId }) {
+export default function MoodCalendar() {
   const [moodLogs, setMoodLogs] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedEntry, setSelectedEntry] = useState(null);
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
+
 
     useEffect(() => {
       if (!userId) return;
-    
-    fetch(`neuro-backend-production-e950.up.railway.app`)
-  .then((res) => {
-    if (!res.ok) return null;
-    return res.json();
-  })
-  .then((data) => {
-    if (data) setMoodLogs(Array.isArray(data) ? data : []);
-  })
-  .catch((err) => console.error("Error fetching mood logs:", err));
-
+    fetch(`https://neuro-backend-production-e950.up.railway.app/api/mood/all/${userId}`)
+      .then((res) => res.json())
+        .then((data) => {
+          console.log("Mood logs fetched:", data);
+        setMoodLogs(Array.isArray(data) ? data : []);
+      })
+      .catch((err) => console.error("Error fetching mood logs:", err));
 
   }, [userId]);
 
@@ -47,7 +45,7 @@ export default function MoodCalendar({ userId }) {
     if (view !== "month") return "";
     const entry = getMoodEntry(date);
     if (!entry) return "";
-    return `${moodColors[entry.mood]} text-white rounded-md`; // full background color
+    return `${moodColors[entry.mood]} text-white rounded-md`;
   };
 
 
@@ -63,7 +61,7 @@ export default function MoodCalendar({ userId }) {
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-4 text-center">Mood Calendar</h2>
       <Calendar
-        className="mx-auto" // centers the calendar
+        className="mx-auto"
         onClickDay={handleDateClick}
         tileClassName={getTileClassName}
       />

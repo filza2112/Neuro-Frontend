@@ -12,7 +12,7 @@ const api = process.env.REACT_APP_API_URL;
 
 function FocusPage() {
     const [startTime] = useState(Date.now());
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId") || "dev_user_123" ; 
     console.log("FocusPage userId:", userId);
     // Tab visibility change tracking
     useEffect(() => {
@@ -63,7 +63,7 @@ function FocusPage() {
 
             <section className="flex flex-row justify-center items-start bg-background-alt rounded-2xl shadow-lg gap-4 p-6">
                 <CPTGame />
-                <CustomAttentionTest userId={userId}/>
+                <CustomAttentionTest />
             </section>
 
 

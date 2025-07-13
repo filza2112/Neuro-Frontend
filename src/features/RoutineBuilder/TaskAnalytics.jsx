@@ -12,7 +12,8 @@ function TaskAnalytics({ completed, total }) {
   const currentYear = new Date().getFullYear();
   const startOfYear = new Date(`${currentYear}-01-01`);
   const endOfYear = new Date(`${currentYear}-12-31`);
-  const [userId] = useState(localStorage.getItem("userId"));
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
+  
 
   useEffect(() => {
     fetch(`${api}/api/tasks/completion-history/${userId}`)

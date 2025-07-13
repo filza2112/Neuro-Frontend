@@ -12,7 +12,7 @@ import {
 const api = process.env.REACT_APP_API_URL;
 function MoodChart() {
   const [moodData, setMoodData] = useState([]);
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
 
   useEffect(() => {
     fetch(`${api}/api/mood/all/${userId}`)

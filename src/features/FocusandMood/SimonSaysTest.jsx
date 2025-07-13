@@ -9,7 +9,7 @@ const colorMap = {
 };
 
 
-export default function SimonSaysTest({ userId, difficulty }) {
+export default function SimonSaysTest({difficulty }) {
     const [sequence, setSequence] = useState([]);
     const [userSequence, setUserSequence] = useState([]);
     const [activeColor, setActiveColor] = useState(null);
@@ -17,6 +17,8 @@ export default function SimonSaysTest({ userId, difficulty }) {
     const [level, setLevel] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [startTime, setStartTime] = useState(null);
+    const userId = localStorage.getItem("userId") || "dev_user_123" ; 
+
 
     const getDelay = () => {
         switch (difficulty) {

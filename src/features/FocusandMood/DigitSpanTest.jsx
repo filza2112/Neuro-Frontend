@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 const api = process.env.REACT_APP_API_URL;
 
-export default function DigitSpanTest({ userId, difficulty }) {
+export default function DigitSpanTest({ difficulty }) {
   const [digitSequence, setDigitSequence] = useState([]);
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
   const [userInput, setUserInput] = useState("");
   const [showDigits, setShowDigits] = useState(true);
   const [message, setMessage] = useState("");

@@ -10,7 +10,7 @@ import {
 } from "recharts";
 const api = process.env.REACT_APP_API_URL;
 function FocusChart() {
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId") || "dev_user_123" ; 
   const [focusData, setFocusData] = useState([]);
   const [summary, setSummary] = useState({
     totalFocusedMinutes: 0,
