@@ -59,7 +59,7 @@ const MainContent = ({showButton}) => {
         <div className="flex flex-col-reverse md:flex-row mx-auto max-w-[920px] items-center md:justify-between py-10 px-4 md:px-0 space-y-8 md:space-y-0 md:space-x-8">
         
           <div className="space-y-5 gap-4 text-center md:text-left">
-            <h1 className="text-white text-3xl md:text-4xl font-mullish font-bold leading-[1.2]">
+            <h1 className="md:text-white text-text-secondary text-3xl md:text-4xl font-mullish font-bold leading-[1.2]">
               Empower Your Day, Master Your Mind
             </h1>
             <div className="w-6 h-1 bg-text-secondary mx-auto md:mx-0"></div>
