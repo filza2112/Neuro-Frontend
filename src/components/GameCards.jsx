@@ -17,8 +17,8 @@ const games = [
     description: "Test your memory with a fun tile-flipping challenge.",
   },
   {
-    title: "🎯 Another Game",
-    path: "/another-game",
+    title: "🎯 Focus Game",
+    path: "/features/game/focus",
     description: "Explore another fun game to sharpen your mind!",
   },
 ];

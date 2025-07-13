@@ -11,6 +11,7 @@ import WeeklyQuiz from "./features/Quiz/WeeklyQuiz";
 import MoodComic from './features/Quiz/MoodComic';
 import Game from './pages/Game';
 import MemoryGame from './components/MemoryGame';
+import FocusGame from './components/FocusGame';
 import ErrorBoundary from "./Error";
 
 
@@ -26,6 +27,8 @@ export default function App() {
         <Route path="/dashbaord" element={<DashBoard />} />
         <Route path="/features/game" element={<Game />} />
   <Route path="/features/game/Memory" element={<MemoryGame />} />
+  <Route path="/features/game/focus" element={<FocusGame />} />
+
 
 
 
