@@ -13,7 +13,6 @@ import MoodCalendar from "../components/MoodCalendar";
 const userId = localStorage.getItem("userId");
 
 const Dashboard = () => {
-  
   return (
     <div className="font-mullish bg-background min-h-screen flex flex-col">
       <Navbar />
@@ -25,14 +24,20 @@ const Dashboard = () => {
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Combined Focus & Mood Section */}
+          
+          {/* Focus & Mood Section */}
           <DashboardCard title="Focus & Mood">
-            <div className="space-y-4"></div>
-            <DashboardCard title="Mood Calendar">
-              <MoodCalendar userId={userId} />
-            </DashboardCard>
+            <div className="space-y-4">
+              {safeRender(() => (
+                <DashboardCard title="Mood Calendar">
+                  <MoodCalendar userId={userId} />
+                </DashboardCard>
+              ))}
 
-            <TopDistractionCard userId={userId} />
+              {safeRender(() => (
+                <TopDistractionCard userId={userId} />
+              ))}
+            </div>
           </DashboardCard>
 
           {/* Routine Section */}
@@ -40,7 +45,9 @@ const Dashboard = () => {
             <p className="text-gray-600">
               Track your daily habits and routines here.
             </p>
-            <TaskAnalytics userId={userId} />
+            {safeRender(() => (
+              <TaskAnalytics userId={userId} />
+            ))}
           </DashboardCard>
 
           {/* Quiz Section */}
@@ -48,13 +55,17 @@ const Dashboard = () => {
             <p className="text-gray-600">
               Take your quiz or view weekly results.
             </p>
-            <WeeklyProgressChart />
+            {safeRender(() => (
+              <WeeklyProgressChart />
+            ))}
           </DashboardCard>
 
           {/* Triggers Section */}
           <DashboardCard title="Quiz">
             <p className="text-gray-600">Triggers.</p>
-            <TopTriggersCard />
+            {safeRender(() => (
+              <TopTriggersCard />
+            ))}
           </DashboardCard>
         </div>
       </main>
@@ -70,5 +81,15 @@ const DashboardCard = ({ title, children }) => (
     {children}
   </div>
 );
+
+// Utility: catches any render error silently
+const safeRender = (renderFn) => {
+  try {
+    return renderFn();
+  } catch (error) {
+    console.error("Render error caught:", error);
+    return null;
+  }
+};
 
 export default Dashboard;

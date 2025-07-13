@@ -22,7 +22,7 @@ export default function VoiceInput({ onTranscribe }) {
       formData.append("audio", blob, "voice.webm");
 
       try {
-        const res = await fetch("http://localhost:5000/api/audio/transcribe", {
+        const res = await fetch("https://neuro-backend-production-e950.up.railway.app/api/audio/transcribe", {
           method: "POST",
           body: formData,
         });

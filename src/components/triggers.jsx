@@ -8,7 +8,8 @@ function TopTriggersCard() {
   useEffect(() => {
     async function fetchTriggers() {
       try {
-        const res = await fetch(`http://localhost:5000/api/chat/top-triggers/${userId}`);
+        const res = await fetch(`https://neuro-backend-production-e950.up.railway.app/api/chat/top-triggers/${userId}`);
+        if (!res.ok) return;
         const data = await res.json();
         setTriggers(data);
       } catch (err) {

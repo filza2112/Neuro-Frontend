@@ -18,7 +18,7 @@ export default function EmotionChat() {
     setMessages((prev) => [...prev, { sender: "user", text }]);
 
     try {
-      const res = await fetch("http://localhost:5000/api/chat/analyze", {
+      const res = await fetch("https://neuro-backend-production-e950.up.railway.app/api/chat/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

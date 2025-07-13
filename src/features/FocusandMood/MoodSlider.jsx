@@ -48,7 +48,7 @@ function MoodSlider() {
 
 
     try {
-      const res = await fetch(`${api}/api/mood/submit`, {
+      const res = await fetch(`https://neuro-backend-production-e950.up.railway.app/api/mood/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(moodEntry),

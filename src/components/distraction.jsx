@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { safeFetchJson } from "../";
 
 export default function TopDistractions({ userId }) {
   const [topDistractions, setTopDistractions] = useState([]);
@@ -7,8 +8,9 @@ export default function TopDistractions({ userId }) {
     const fetchDistractions = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/distraction/summary/${userId}`
+          `https://neuro-backend-production-e950.up.railway.app/api/distraction/summary/${userId}`
         );
+        if (!res.ok) return;
         const data = await res.json();
         setTopDistractions(data);
       } catch (err) {
